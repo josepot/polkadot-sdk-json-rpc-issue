@@ -1,0 +1,60 @@
+{
+  "name": "polkadot-sdk-json-rpc-issue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "postinstall": "papi",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,md}\"",
+    "build": "esbuild --bundle src/main.ts --outdir=build --sourcemap --format=esm --platform=node --packages=external",
+    "start": "npm run build && node --enable-source-maps ./build/main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.10.4",
+    "@types/ws": "^8.5.10",
+    "esbuild": "^0.18.17",
+    "prettier": "^3.1.1",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "@polkadot-api/cli": "0.0.1-c4b0de21cd4bf756936e3b1583036d15b03fe605.1.0",
+    "@polkadot-api/client": "0.0.1-c4b0de21cd4bf756936e3b1583036d15b03fe605.1.0",
+    "@polkadot-api/json-rpc-provider": "0.0.1-c4b0de21cd4bf756936e3b1583036d15b03fe605.1.0",
+    "@polkadot-api/json-rpc-provider-proxy": "0.0.1-c4b0de21cd4bf756936e3b1583036d15b03fe605.1.0",
+    "@polkadot-api/substrate-bindings": "0.0.1-c4b0de21cd4bf756936e3b1583036d15b03fe605.1.0",
+    "ws": "^8.14.2"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": false,
+    "trailingComma": "all"
+  },
+  "polkadot-api": {
+    "dot": {
+      "metadata": "dot-metadata.scale",
+      "outputFolder": "./src/client/generated",
+      "selectOnly": [
+        "Identity.query.IdentityOf",
+        "Identity.query.SuperOf",
+        "Staking.query.Validators",
+        "Staking.query.CurrentEra",
+        "Staking.query.ErasRewardPoints",
+        "Staking.query.ErasStakers",
+        "Staking.query.ActiveEra",
+        "Staking.query.Nominators",
+        "Session.query.Validators"
+      ]
+    },
+    "roc": {
+      "metadata": "roc-metadata.scale",
+      "outputFolder": "./src/client/generated",
+      "selectOnly": [
+        "Identity.query.IdentityOf"
+      ]
+    }
+  }
+}

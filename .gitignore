@@ -1,0 +1,13 @@
+*.log
+.DS_Store
+node_modules
+coverage
+.cache
+packages/*/dist/**
+experiments/dist/**
+examples/*/dist/**
+.vscode
+.pnpm-store
+build
+wire-logs.txt
+src/client/generated
